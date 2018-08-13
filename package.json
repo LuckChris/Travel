@@ -11,6 +11,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
+    "pug": "^2.0.3",
+    "pug-loader": "^2.4.0",
+    "reset.less": "^1.0.5",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
