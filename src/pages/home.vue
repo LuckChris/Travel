@@ -2,13 +2,9 @@
 .home-content-wrapper
     home-header
     .swiper-content-wrapper
-      swiper.swiper-content( height='2.3rem' loop='true' auto
+      swiper.swiper-content( height='2.3rem' loop=true auto
             dots-position="center" dots-class='active-dots', :list='imageList')
-    .swiper-iconfont-wrapper
-      swiper(loop='false', :show-dots='false')
-        swiper-item()
-          image()
-          p
+
 </template>
 <script>
 import HomeHeader from '@/components/header/header'
@@ -28,7 +24,12 @@ export default {
         }
       ],
       iconfontList: [
-        {img:'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',desc:'景点'}
+        {img: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '景点门票'},
+        {img: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '水上乐园'},
+        {img: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '游乐园'},
+        {img: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '海洋馆'},
+        {img: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '动植物园'},
+        {img: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png', desc: '玩转长隆'}
 
       ]
 
