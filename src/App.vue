@@ -10,8 +10,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang='less'>
+@import '~vux/src/styles/reset.less';
 @import './assets/styles/common.less';
-@import './assets/styles/Iconfont/iconfont.css'
-
+@import './assets/styles/Iconfont/iconfont.css';
 </style>
