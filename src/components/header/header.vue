@@ -1,6 +1,7 @@
 <template lang='pug'>
 .header-content-wrapper
     .header-back
+        i.iconfont.icon-previewleft
     .header-input
     .header-city
 </template>
