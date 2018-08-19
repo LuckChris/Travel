@@ -2,8 +2,6 @@
 .home-content-wrapper
     home-header
     .swiper-content-wrapper
-      swiper.swiper-content( height='2.3rem' loop=true auto
-            dots-position="center" dots-class='active-dots', :list='imageList')
 
 </template>
 <script>
