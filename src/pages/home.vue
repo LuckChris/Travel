@@ -5,10 +5,14 @@
         swiper.swiper-content( height='2.3rem' loop=true auto
             dots-position="center" dots-class='active-dots', :list='imageList')
         iconfont-swiper
+        home-recommend
+        home-weekend
 </template>
 <script>
 import HomeHeader from '@/components/header/header'
 import iconfontSwiper from './iconfont'
+import HomeRecommend from './recommend'
+import HomeWeekend from './weekend'
 import {Swiper, SwiperItem} from 'vux'
 export default {
   data () {
@@ -34,14 +38,16 @@ export default {
     HomeHeader,
     Swiper,
     SwiperItem,
-    iconfontSwiper
+    iconfontSwiper,
+    HomeRecommend,
+    HomeWeekend
   }
 
 }
 </script>
 <style lang='less'>
 .home-content-wrapper{
-  background-color: pink;
+  // background-color: pink;
 
 }
 
