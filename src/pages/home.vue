@@ -1,46 +1,46 @@
 <template lang='pug'>
 .home-content-wrapper
     home-header
-    .swiper-content-wrapper
-        swiper.swiper-content( height='2.3rem' loop=true auto
-            dots-position="center" dots-class='active-dots', :list='imageList')
-        iconfont-swiper
-        home-recommend
-        home-weekend
+    home-swiper(:imageList='swiperlist')
+    iconfont-swiper
+    home-recommend
+    home-weekend
 </template>
 <script>
 import HomeHeader from '@/components/header/header'
 import iconfontSwiper from './iconfont'
 import HomeRecommend from './recommend'
 import HomeWeekend from './weekend'
-import {Swiper, SwiperItem} from 'vux'
+import HomeSwiper from './swiper'
+import axios from 'axios'
 export default {
+  name: 'home',
   data () {
     return {
-      imageList: [
-        {
-          img: ' http://img1.qunarzz.com/piao/fusion/1807/c6/44fce1467be17702.jpg_750x200_406f5fc3.jpg'
-        },
-        {
-          img: 'http://img1.qunarzz.com/piao/fusion/1808/5e/514ce60160e62602.jpg_750x200_9b0074e2.jpg'
-        },
-        {
-          img: 'http://img1.qunarzz.com/piao/fusion/1807/66/e5a5cec881702f02.jpg_750x200_67bb5691.jpg'
-        }
-      ]
+      swiperlist: []
 
     }
   },
-  methods: {
-
-  },
   components: {
     HomeHeader,
-    Swiper,
-    SwiperItem,
+    HomeSwiper,
     iconfontSwiper,
     HomeRecommend,
     HomeWeekend
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('/api/index.json').then((res) => {
+        const data = res.data.data
+        this.swiperlist = data.swiperList
+        // console.log(data.swiperList)
+        // console.log(this.swiperlist)
+      })
+    }
+
+  },
+  created () {
+    this.getHomeInfo()
   }
 
 }
