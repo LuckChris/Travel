@@ -1,7 +1,7 @@
 <template lang='pug'>
 .home-content-wrapper
     home-header
-    home-swiper(:imageList='swiperlist')
+    home-swiper(:list='swiperlist')
     iconfont-swiper
     home-recommend
     home-weekend
