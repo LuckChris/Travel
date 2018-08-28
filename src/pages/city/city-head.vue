@@ -1,6 +1,6 @@
 <template lang='pug'>
   .city-head-content.white-color
-    .back-icon.iconfont.icon-previewleft
+    router-link(to='/').back-icon.iconfont.icon-previewleft
     .city-title 城市选择
 </template>
 <script>
@@ -10,24 +10,23 @@ export default {
 </script>
 <style lang='less'>
 .city-head-content{
-  width:100%;
-  height: .8rem;
-  line-height: .88rem;
-  background-color:#00bcd4;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  position: relative;
   overflow: hidden;
+  height: .88rem;
+  line-height: .88rem;
+  font-size: .32rem;
+  background-color: #00bcd4;
   .back-icon{
-    padding-left: .3rem;
-    font-size: .56rem;
-    box-sizing: border-box;
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: .64rem;
+   text-align: center;
+   font-size: .4rem;
+   color: #fff;
   }
   .city-title{
-    flex:1;
-    text-align: center;
-    font-size: .32rem;
-    padding-right: .6rem;
+     text-align: center;
   }
 }
 
