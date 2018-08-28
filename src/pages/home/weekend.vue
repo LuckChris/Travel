@@ -1,17 +1,20 @@
 <template lang='pug'>
   .recommend-wrapper
     .recommend-title 周末去哪
-    .recommend-item(v-for="item,index in 3",:key='index')
+    .recommend-item(v-for="item,index in list",:key='item.id')
       .item-img
-        img(src='http://img1.qunarzz.com/sight/source/1606/85/c6b6bad1b977e.jpg_r_640x214_5c638941.jpg')
+        img(:src='item.imgUrl')
       .item-info
-        .item-title.ellipsis 上海迪士尼乐园
-        .item-desc.ellipsis 上海迪士尼乐园上海
+        .item-title.ellipsis {{item.title}}
+        .item-desc.ellipsis {{item.desc}}
 </template>
 <script>
 import { XButton } from 'vux'
 export default {
   name: 'weekend',
+  props: {
+    list: Array
+  },
   data () {
     return {
 

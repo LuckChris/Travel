@@ -3,7 +3,7 @@
     .header-back
         i.iconfont.icon-previewleft
     .header-input.iconfont.icon-search 输入城市/景点/游玩主题
-    .header-city
+    router-link(to='/city').header-city.white-color
         p 城市
         i.iconfont.icon-arrowdown-copy
 </template>

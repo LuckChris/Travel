@@ -1,12 +1,12 @@
 <template lang='pug'>
   .recommend-wrapper
     .recommend-title 热销推荐
-    .recommend-item(v-for="item,index in 6",:key='index')
+    .recommend-item(v-for="item,index in list",:key='index')
       .item-img
-        img(src='http://img1.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_200x200_8eb33f07.jpg')
+        img(:src='item.imgUrl')
       .item-info
-        .item-title.ellipsis 上海迪士尼乐园
-        .item-desc.ellipsis 上海迪士尼乐园上海
+        .item-title.ellipsis {{item.title}}
+        .item-desc.ellipsis {{item.desc}}
         .item-button.text-right
           x-button(mini type="primary") 查看详情
 
@@ -15,6 +15,9 @@
 import { XButton } from 'vux'
 export default {
   name: 'recommend',
+  props: {
+    list: Array
+  },
   data () {
     return {
 
@@ -59,6 +62,11 @@ export default {
         line-height: .4rem;
         color: #ccc;
       }
+      .item-button{
+        padding-top: .2rem;
+        padding-right: .2rem;
+      }
+
     }
   }
 }

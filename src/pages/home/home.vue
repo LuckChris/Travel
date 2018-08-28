@@ -1,10 +1,10 @@
 <template lang='pug'>
 .home-content-wrapper
-    home-header
-    home-swiper(:list='swiperlist')
-    iconfont-swiper
-    home-recommend
-    home-weekend
+  home-header
+  home-swiper(:list='swiperlist')
+  iconfont-swiper(:list='iconfontList')
+  home-recommend(:list='recommendList')
+  home-weekend(:list='weekendList')
 </template>
 <script>
 import HomeHeader from '@/components/header/header'
@@ -17,7 +17,10 @@ export default {
   name: 'home',
   data () {
     return {
-      swiperlist: []
+      swiperlist: [],
+      iconfontList: [],
+      recommendList: [],
+      weekendList: []
 
     }
   },
@@ -33,8 +36,9 @@ export default {
       axios.get('/api/index.json').then((res) => {
         const data = res.data.data
         this.swiperlist = data.swiperList
-        // console.log(data.swiperList)
-        // console.log(this.swiperlist)
+        this.iconfontList = data.iconList
+        this.recommendList = data.recommendList
+        this.weekendList = data.weekendList
       })
     }
 
