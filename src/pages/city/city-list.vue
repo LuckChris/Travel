@@ -7,6 +7,20 @@
           .button 上海
         .city-item
           .button 北京
+      .city-title 热门城市
+      .city-list
+        .city-item
+          .button 上海
+      .city-all(v-for='item in 6')
+        .city-title A
+        .city-all-list
+            ul
+              li 上海
+              li 深圳
+              li 上海
+              li 深圳
+              li 上海
+              li 深圳
 </template>
 <script>
 import {XButton} from 'vux'
@@ -42,6 +56,19 @@ export default {
       }
     }
   }
+  .city-all{
+   .city-all-list{
+      background-color: #fff;
+      padding-left: .2rem;
+      ul{
+        li{
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+
+  }
+
 }
 
 </style>
