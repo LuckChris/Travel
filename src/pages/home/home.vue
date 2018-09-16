@@ -12,7 +12,6 @@ import iconfontSwiper from './iconfont'
 import HomeRecommend from './recommend'
 import HomeWeekend from './weekend'
 import HomeSwiper from './swiper'
-import axios from 'axios'
 export default {
   name: 'home',
   data () {
@@ -21,7 +20,6 @@ export default {
       iconfontList: [],
       recommendList: [],
       weekendList: []
-
     }
   },
   components: {
@@ -33,7 +31,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json').then((res) => {
+      this.$axios.get('/api/index.json').then(res => {
         const data = res.data.data
         this.swiperlist = data.swiperList
         this.iconfontList = data.iconList
@@ -41,18 +39,14 @@ export default {
         this.weekendList = data.weekendList
       })
     }
-
   },
   created () {
     this.getHomeInfo()
   }
-
 }
 </script>
 <style lang='less'>
-.home-content-wrapper{
+.home-content-wrapper {
   // background-color: pink;
-
 }
-
 </style>

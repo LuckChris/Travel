@@ -4,14 +4,21 @@
         i.iconfont.icon-previewleft
     .header-input.iconfont.icon-search 输入城市/景点/游玩主题
     router-link(to='/city').header-city.white-color
-        p 城市
+        p {{currentCity}}
         i.iconfont.icon-arrowdown-copy
 </template>
 <script>
 import {Group, Cell} from 'vux'
+import {mapState} from 'vuex'
 export default {
   components: {
     Group, Cell
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'
+    })
+
   }
 }
 </script>
