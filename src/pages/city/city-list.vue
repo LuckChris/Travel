@@ -47,7 +47,6 @@ export default {
   },
   methods: {
     choseCityHandle (city) {
-      console.log('city')
       this.changeCity(city)
       this.$router.push('/')
     },

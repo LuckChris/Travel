@@ -1,15 +1,14 @@
 <template lang='pug'>
   .recommend-wrapper
     .recommend-title 热销推荐
-    .recommend-item(v-for="item,index in list",:key='index')
-      .item-img
-        img(:src='item.imgUrl')
-      .item-info
-        .item-title.ellipsis {{item.title}}
-        .item-desc.ellipsis {{item.desc}}
-        .item-button.text-right
-          x-button(mini type="primary") 查看详情
-
+    router-link.recommend-item(v-for="item of list",:key='item.id',:to="'/detail/' + item.id")
+        .item-img
+          img(:src='item.imgUrl')
+        .item-info
+          .item-title.ellipsis {{item.title}}
+          .item-desc.ellipsis {{item.desc}}
+          .item-button.text-right
+            x-button(mini type="primary") 查看详情
 </template>
 <script>
 import { XButton } from 'vux'
@@ -25,6 +24,11 @@ export default {
   },
   components: {
     XButton
+  },
+  methods: {
+    // goToDetail () {
+    //   this.$router.push({name: 'Detail'})
+    // }
   }
 }
 </script>

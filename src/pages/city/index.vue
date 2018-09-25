@@ -1,7 +1,7 @@
 <template lang='pug'>
   .city-content-wrapper
     city-head
-    city-search
+    city-search(:cities='cityList')
     city-list(:cityList='cityList',
               :hot='hotCitys',
               :letter='letter')
