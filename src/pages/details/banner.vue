@@ -1,19 +1,33 @@
 <template lang='pug'>
 .banner-wrapper
-    .banner
+    .banner(@click='bannerClickHandler')
         img(:src='bannerImg')
         .banner-info
             .info-title
                 p {{sightName}}
             .info-number
                 p {{this.gallaryImgs.length}}
+    fade-animation
+        common-gallery(:imgList='gallaryImgs' v-show='showGallery' @close='closeHandler')
 </template>
 <script>
+import FadeAnimation from '../../components/fade/fade-animation'
+import CommonGallery from '../../components/common-gallery/index'
 export default {
   props: ['bannerImg', 'sightName', 'gallaryImgs'],
+  components: {FadeAnimation, CommonGallery},
   data () {
     return {
+      showGallery: false
 
+    }
+  },
+  methods: {
+    bannerClickHandler () {
+      this.showGallery = true
+    },
+    closeHandler () {
+      this.showGallery = false
     }
   },
   created () {

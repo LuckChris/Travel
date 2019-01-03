@@ -7,6 +7,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import axios from 'axios'
 import store from './store/index'
 import 'reset.less'
+import './utils/vue-notice/index'
 
 // require styles
 import 'swiper/dist/css/swiper.css'

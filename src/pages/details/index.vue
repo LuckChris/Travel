@@ -1,9 +1,12 @@
 <template lang='pug'>
 .detail-wrapper
     detail-banner(:bannerImg='bannerImg' :sightName='sightName' :gallaryImgs='gallaryImgs')
+    detail-head
+    p 很多的内容很长的内容很多的内容
 </template>
 <script>
 import detailBanner from './banner'
+import detailHead from './head'
 export default {
   name: '',
   data () {
@@ -15,16 +18,16 @@ export default {
     }
   },
   components: {
-    detailBanner
+    detailBanner,
+    detailHead
 
   },
   async created () {
-    this.getDAta()
+    this.getData()
   },
   methods: {
-    async getDAta () {
+    async getData () {
       try {
-        console.log('aaa')
         let {data} = await this.$axios.get('/api/detail.json', {
           params: {
             id: this.$route.params.id
@@ -44,5 +47,8 @@ export default {
 }
 </script>
 <style lang='less'>
+p {
+  height: 100rem;
+}
 
 </style>

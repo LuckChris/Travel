@@ -2,15 +2,13 @@
   .city-wrapper
     .city-search
       input(placeholder='输入城市名或拼音', v-model='keyword')
-    .search-content(v-if='keyword' ref="wrapper")
-      ul
+    .search-content(v-if='keyword' ref="listWrapper")
+      ul.content
         li.item(v-for='(item,index) in list',:key='index',@click='handleClick(item.name)') {{item.name}}
         li(v-show='hasNoData') 没有找到匹配数据
 
 </template>
 <script>
-import { setTimeout, clearTimeout } from 'timers'
-import BScroll from 'better-scroll'
 import {mapMutations} from 'vuex'
 export default {
   name: 'citySearch',
@@ -37,7 +35,6 @@ export default {
       this.$router.push('/')
     },
     ...mapMutations(['changeCity'])
-
   },
   watch: {
     keyword () {
@@ -59,9 +56,6 @@ export default {
         this.list = result
       }, 100)
     }
-  },
-  mounted () {
-    this.scroll = new BScroll(this.$refs.wrapper) // 报错
   }
 }
 </script>
@@ -72,19 +66,21 @@ export default {
     width: 100%;
     text-align: center;
     padding-bottom: 0.2rem;
-   // height: .72rem;
     input {
       width: 90%;
       border-radius: 0.04rem;
       line-height: 0.64rem;
       outline: none;
       border: none;
-      text-align: center;
+      text-align: left;
       color: #666;
+      // padding-top: .2rem
+      padding-left: .3rem;
     }
   }
   .search-content{
     width:100%;
+    height: 20rem;
     position: absolute;
     left: 0;
     top:1.7rem;
@@ -92,7 +88,7 @@ export default {
     bottom: 0;
     background-color:#eee;
     z-index: 9;
-   // overflow: hidden;
+   overflow: hidden;
     .item{
       height: 0.62rem;
       line-height: 0.62rem;

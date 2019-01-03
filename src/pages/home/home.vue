@@ -30,14 +30,21 @@ export default {
     HomeWeekend
   },
   methods: {
-    getHomeInfo () {
-      this.$axios.get('/api/index.json').then(res => {
-        const data = res.data.data
-        this.swiperlist = data.swiperList
-        this.iconfontList = data.iconList
-        this.recommendList = data.recommendList
-        this.weekendList = data.weekendList
-      })
+    async getHomeInfo () {
+      try {
+        this.$loading()
+        this.$axios.get('/api/index.json').then(res => {
+          const data = res.data.data
+          this.swiperlist = data.swiperList
+          this.iconfontList = data.iconList
+          this.recommendList = data.recommendList
+          this.weekendList = data.weekendList
+        })
+      } catch (e) {
+        console.log(e)
+      } finally {
+        this.$loaded()
+      }
     }
   },
   created () {

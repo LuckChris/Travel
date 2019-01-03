@@ -28,13 +28,15 @@ export default {
     }
   },
   methods: {
-    getCityInfo () {
-      this.$axios.get('/api/city.json').then(res => {
-        const data = res.data.data
+    async getCityInfo () {
+      try {
+        let res = await this.$axios.get('/api/city.json')
+        let data = res.data.data
         this.cityList = data.cities
         this.hotCitys = data.hotCities
-        console.log(this.hotCitys, this.cityList)
-      })
+      } catch (error) {
+        console.log(error)
+      }
     },
     letterHandle (letter) {
       this.letter = letter
